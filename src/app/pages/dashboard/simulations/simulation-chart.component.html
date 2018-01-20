@@ -1,0 +1,15 @@
+<nb-card>
+  <nb-card-header>
+    Site <span class="site">{{site.site}}</span> {{year}}
+    <aside class="month-selector">
+      <select (change)="selectMonth($event.target.value)" [(ngModel)]="dateSelection">
+        <option *ngFor="let month of months" value={{month}}>
+          {{month | date:'MMMM'}}
+        </option>
+      </select>
+    </aside>
+  </nb-card-header>
+  <nb-card-body>
+    <div echarts [options]="options" class="echart"></div>
+  </nb-card-body>
+</nb-card>
